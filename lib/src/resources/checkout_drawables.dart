@@ -37,5 +37,7 @@ final class CheckoutDrawables {
   static String otpImage = "$_baseUrl/otp_icon.png";
   static String otpImageSvg = "$_baseUrl/otp_icon1.svg";
   static String otpPng = "$_baseUrl/otp_icon_png.png";
+  static const String telecelImage = "$_baseUrl/telecel.png";
+  static const String telecelMomoImage = "$_baseUrl/telecelmomo.png";
 
 }

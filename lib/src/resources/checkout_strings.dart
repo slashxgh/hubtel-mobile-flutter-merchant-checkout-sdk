@@ -55,7 +55,7 @@ class CheckoutStrings {
   static const paymentWithMomoInfoTail =
       " go to My Account and select Approvals";
 
-  static const vodafoneCash = "Vodafone Cash";
+  static const vodafoneCash = "Telecel Cash";
 
   static const airtelTigoMoney = "AirtelTigo Cash";
 
@@ -378,5 +378,6 @@ class CheckoutStrings {
   static const seeCode =  " to see code. ";
   static const option_5 =  " Option 5 ";
   static const errorText = "Error";
+  static const String telecel = "Telecel";
 
 }
