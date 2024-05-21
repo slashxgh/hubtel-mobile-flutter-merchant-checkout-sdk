@@ -344,7 +344,8 @@ class CheckoutStrings {
 
   static const bankPay = "bankpay";
 
-  static const bank_pay = "Bank Pay";
+  static const bank_pay = "Cash / Cheque";
+
 
   static String getChannelNameForBankPayment(String cardNumber) {
     return cardNumber.startsWith(CheckoutStrings.four)
