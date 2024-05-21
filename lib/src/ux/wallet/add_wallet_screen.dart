@@ -229,7 +229,7 @@ class AddWalletScreenState extends ValueNotifier<AddWalletUiModel> {
 
   final List<(String, String)> providers = [
     (CheckoutStrings.mtn.toUpperCase(), CheckoutDrawables.mtnMomo),
-    (CheckoutStrings.telecel.capitalize(), CheckoutDrawables.telecelMomoImage),,
+    (CheckoutStrings.telecel.capitalize(), CheckoutDrawables.telecelMomoImage),
     (CheckoutStrings.airtelDashTigo, CheckoutDrawables.airtelTigo),
   ];
 
