@@ -42,7 +42,7 @@ class CheckoutViewModel extends ChangeNotifier {
         preapprovalConfirmValue: '',
         directDebitValue: 'mtn-gh-direct-debit'),
     MomoProvider(
-        name: 'Vodafone Cash',
+        name: 'Telecel Cash',
         logoUrl: '',
         alias: 'vodafone',
         receiveMoneyPromptValue: 'vodafone-gh',
