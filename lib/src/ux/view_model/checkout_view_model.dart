@@ -409,7 +409,7 @@ class CheckoutViewModel extends ChangeNotifier {
       return Wallet(
           externalId: "",
           accountNo: "",
-          accountName: "GMoney",
+          accountName: "G-Money",
           providerId: "providerId",
           provider: "g-money",
           type: "type");
