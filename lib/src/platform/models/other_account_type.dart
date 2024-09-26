@@ -1,6 +1,6 @@
 enum OtherAccountTypes {
   Hubtel("Hubtel"),
-  GMoney("GMoney"),
+  GMoney("G-Money"),
   Zeepay("Zeepay");
 
   final String rawValue;
