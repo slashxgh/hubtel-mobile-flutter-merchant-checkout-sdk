@@ -41,7 +41,7 @@ class CheckoutStrings {
 
 2 Select Option 2 (G-Money)
 
-3 Select Option 4 (Payment Services)
+3 Select Option 5 (Payment Services)
 
 4 Select Option 6 (Mandate)
 

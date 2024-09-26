@@ -34,74 +34,73 @@ class PaymentInfoCard extends StatelessWidget {
         // vertical: AppDimens.paddingDefaultNormal,
       ),
       // decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-      child: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            RotatedBox(
-              quarterTurns: 2,
-              child: ClipPath(
-                clipper: ZigzagClipper(
-                  lineCount: 34,
-                  lineHeight: 5,
-                ),
-                child: Container(
-                  height: 30,
-                  width: double.maxFinite,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: HubtelColors.neutral.shade100,
-                    border: Border.symmetric(
-                      vertical: BorderSide(
-                        color: HubtelColors.neutral.shade400,
-                      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          RotatedBox(
+            quarterTurns: 2,
+            child: ClipPath(
+              clipper: ZigzagClipper(
+                lineCount: 34,
+                lineHeight: 5,
+              ),
+              child: Container(
+                height: 30,
+                width: double.maxFinite,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: HubtelColors.neutral.shade100,
+                  border: Border.symmetric(
+                    vertical: BorderSide(
+                      color: HubtelColors.neutral.shade400,
                     ),
                   ),
                 ),
               ),
             ),
+          ),
 
-            //
-            Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.symmetric(
-                horizontal: Dimens.paddingDefault,
+          //
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.paddingDefault,
+            ),
+            decoration: BoxDecoration(
+              color: HubtelColors.neutral.shade100,
+              border: Border(
+                left: BorderSide(color: HubtelColors.neutral.shade400),
+                right: BorderSide(color: HubtelColors.neutral.shade400),
+                bottom: BorderSide(color: HubtelColors.neutral.shade400),
               ),
-              decoration: BoxDecoration(
-                color: HubtelColors.neutral.shade100,
-                border: Border(
-                  left: BorderSide(color: HubtelColors.neutral.shade400),
-                  right: BorderSide(color: HubtelColors.neutral.shade400),
-                  bottom: BorderSide(color: HubtelColors.neutral.shade400),
+            ),
+            child: Column(
+              children: [
+                //
+                const SizedBox(
+                  height: Dimens.paddingNano,
                 ),
-              ),
-              child: Column(
-                children: [
-                  //
-                  const SizedBox(
-                    height: Dimens.paddingNano,
-                  ),
 
-                  Row(
-                    // business info
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      AppImageWidget(
-                        //logo
-                        imageUrl: businessInfo.businessImageUrl,
-                        errorImage: AssetImage(businessInfo.businessImageUrl),
-                        placeHolder: AssetImage(
-                          businessInfo.businessImageUrl,
-                        ),
-                        borderRadius: Dimens.normalCircleAvatarRadius,
-                        height: 48,
-                        width: 48,
+                Row(
+                  // business info
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    AppImageWidget(
+                      //logo
+                      imageUrl: businessInfo.businessImageUrl,
+                      errorImage: AssetImage(businessInfo.businessImageUrl),
+                      placeHolder: AssetImage(
+                        businessInfo.businessImageUrl,
                       ),
-                      const SizedBox(
-                        width: Dimens.normalSpacing,
-                      ),
-                      Column(
+                      borderRadius: Dimens.normalCircleAvatarRadius,
+                      height: 48,
+                      width: 48,
+                    ),
+                    const SizedBox(
+                      width: Dimens.normalSpacing,
+                    ),
+                    Flexible(
+                      child: Column(
                         //name
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -119,115 +118,115 @@ class PaymentInfoCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
 
-                  //
-                  const SizedBox(
-                    height: Dimens.paddingNano,
-                  ),
+                //
+                const SizedBox(
+                  height: Dimens.paddingNano,
+                ),
 
-                  //
-                  Divider(
-                    color: HubtelColors.neutral.shade400,
-                    thickness: 1,
-                    // height: 0,
-                  ),
+                //
+                Divider(
+                  color: HubtelColors.neutral.shade400,
+                  thickness: 1,
+                  // height: 0,
+                ),
 
-                  //
-                  const SizedBox(
-                    height: Dimens.paddingDefault,
-                  ),
+                //
+                const SizedBox(
+                  height: Dimens.paddingDefault,
+                ),
 
-                  PaymentCardHorizontalInfo(
-                    detail: CheckoutStrings.amount,
-                    value: checkoutPurchase.amount,
-                  ),
+                PaymentCardHorizontalInfo(
+                  detail: CheckoutStrings.amount,
+                  value: checkoutPurchase.amount,
+                ),
 
-                  const SizedBox(
-                    height: Dimens.paddingNano,
-                  ),
+                const SizedBox(
+                  height: Dimens.paddingNano,
+                ),
 
-                  ValueListenableBuilder(
-                    valueListenable: state.isLessDetails,
-                    builder: (ctx, boolean, child) {
+                ValueListenableBuilder(
+                  valueListenable: state.isLessDetails,
+                  builder: (ctx, boolean, child) {
 
-                        return PaymentCardHorizontalInfo(
-                          detail: CheckoutStrings.fees,
-                          value: checkoutFees,
-                        );
+                      return PaymentCardHorizontalInfo(
+                        detail: CheckoutStrings.fees,
+                        value: checkoutFees,
+                      );
 
-                    },
-                  ),
+                  },
+                ),
 
+                const SizedBox(height: Dimens.paddingDefault),
+
+                // ValueListenableBuilder(
+                //   valueListenable: state.isLessDetails,
+                //   builder: (ctx, value, child) {
+                //     return CustomButton(
+                //       width: 100.0,
+                //       title: state.isLessDetails.value
+                //           ? 'View Fees'
+                //           : 'Less Details',
+                //       buttonAction: state.toggleIsLess,
+                //       style: HubtelButtonStyle.solid,
+                //       isDisabledBgColor: Colors.transparent,
+                //       isEnabledBgColor: Colors.transparent,
+                //       enabledTitleColor: ThemeConfig.themeColor,
+                //     );
+                //   },
+                // )
+              ],
+            ),
+          ),
+
+          ClipPath(
+            clipper: ZigzagClipper(
+              lineCount: 34,
+              lineHeight: 10,
+            ),
+            child: Container(
+              width: double.maxFinite,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                // color: HubtelColors.yellow.shade200,
+                color: ThemeConfig.themeColor.withOpacity(0.3),
+                border: Border(
+                  left: BorderSide(color: HubtelColors.neutral.shade400),
+                  right: BorderSide(color: HubtelColors.neutral.shade400),
+                  top: BorderSide(color: HubtelColors.neutral.shade400),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   const SizedBox(height: Dimens.paddingDefault),
+                  //
+                  Text(
+                    CheckoutStrings.youWillBeCharged,
+                    style: AppTextStyle.caption().copyWith(
+                        // color: Theme.of(context).primaryColor.withOpacity(1),
+                        ),
+                  ),
 
-                  // ValueListenableBuilder(
-                  //   valueListenable: state.isLessDetails,
-                  //   builder: (ctx, value, child) {
-                  //     return CustomButton(
-                  //       width: 100.0,
-                  //       title: state.isLessDetails.value
-                  //           ? 'View Fees'
-                  //           : 'Less Details',
-                  //       buttonAction: state.toggleIsLess,
-                  //       style: HubtelButtonStyle.solid,
-                  //       isDisabledBgColor: Colors.transparent,
-                  //       isEnabledBgColor: Colors.transparent,
-                  //       enabledTitleColor: ThemeConfig.themeColor,
-                  //     );
-                  //   },
-                  // )
+                  const SizedBox(height: Dimens.paddingNano),
+
+                  Text(
+                    (totalAmountPayable ?? checkoutPurchase.amount)
+                        .formatMoney(),
+                    style: AppTextStyle.headline2().copyWith(
+                      color: HubtelColors.neutral.shade900,
+                    ),
+                  ),
+
+                  const SizedBox(height: Dimens.mediumSpacing),
                 ],
               ),
             ),
-
-            ClipPath(
-              clipper: ZigzagClipper(
-                lineCount: 34,
-                lineHeight: 10,
-              ),
-              child: Container(
-                width: double.maxFinite,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  // color: HubtelColors.yellow.shade200,
-                  color: ThemeConfig.themeColor.withOpacity(0.3),
-                  border: Border(
-                    left: BorderSide(color: HubtelColors.neutral.shade400),
-                    right: BorderSide(color: HubtelColors.neutral.shade400),
-                    top: BorderSide(color: HubtelColors.neutral.shade400),
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: Dimens.paddingDefault),
-                    //
-                    Text(
-                      CheckoutStrings.youWillBeCharged,
-                      style: AppTextStyle.caption().copyWith(
-                          // color: Theme.of(context).primaryColor.withOpacity(1),
-                          ),
-                    ),
-
-                    const SizedBox(height: Dimens.paddingNano),
-
-                    Text(
-                      (totalAmountPayable ?? checkoutPurchase.amount)
-                          .formatMoney(),
-                      style: AppTextStyle.headline2().copyWith(
-                        color: HubtelColors.neutral.shade900,
-                      ),
-                    ),
-
-                    const SizedBox(height: Dimens.mediumSpacing),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
