@@ -37,10 +37,21 @@ class NewBankCardForm extends StatefulWidget {
 class _NewBankCardFormState extends State<NewBankCardForm> {
   bool saveCardForFuture = false;
   String cardNumber = "";
+  final FocusNode cardNumberFocusNode = FocusNode();
+  final FocusNode cvvFocusNode = FocusNode();
+  final FocusNode expiryFocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    [cardNumberFocusNode, cvvFocusNode, expiryFocusNode].forEach((el){
+      el.dispose();
+    });
+    super.dispose();
   }
 
   @override
@@ -63,6 +74,9 @@ class _NewBankCardFormState extends State<NewBankCardForm> {
                 cardNumber = val;
               });
               widget.onNewCardNumberChanged?.call(val);
+              if (val.trim().length == 22){
+                FocusScope.of(context).requestFocus(expiryFocusNode);
+              }
             },
             hintText: CheckoutStrings.bankCardHintText,
             inputFormatters: [
@@ -110,6 +124,7 @@ class _NewBankCardFormState extends State<NewBankCardForm> {
             children: [
               Expanded(
                 child: InputField(
+                  node: expiryFocusNode,
                   controller: widget.cardDateInputController,
                   hasFill: true,
                   hintText: CheckoutStrings.monthAndYearBankHint,
@@ -118,7 +133,12 @@ class _NewBankCardFormState extends State<NewBankCardForm> {
                     LengthLimitingTextInputFormatter(5),
                     CardExpiryFormatter(),
                   ],
-                  onChanged: widget.onNewCardDateChanged,
+                  onChanged: (val) {
+                    if (val.trim().length == 5){
+                      FocusScope.of(context).requestFocus(cvvFocusNode);
+                    }
+                    widget.onNewCardDateChanged?.call(val);
+                  },
                   validator: (value) {
                     if (value == null || value.isEmpty || value.length < 5)
                       return CheckoutStrings.invalidDateFormat;
@@ -137,6 +157,7 @@ class _NewBankCardFormState extends State<NewBankCardForm> {
               const SizedBox(width: Dimens.paddingDefault),
               Expanded(
                 child: InputField(
+                  node: cvvFocusNode,
                   isPassword: true,
                   maxLines: 1,
                   controller: widget.cardCvvInputController,

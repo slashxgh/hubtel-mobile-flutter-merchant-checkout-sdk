@@ -28,6 +28,7 @@ class InputField extends StatefulWidget {
       this.inputFormatters,
       this.focusedBorder,
       this.focusBorderColor,
+      this.node,
       this.isPassword = false});
 
   final String hintText;
@@ -53,6 +54,7 @@ class InputField extends StatefulWidget {
   final InputBorder? focusedBorder;
   final Color? focusBorderColor;
   final bool? isPassword;
+  final FocusNode? node;
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -62,6 +64,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: widget.node,
       onChanged: widget.onChanged,
       validator: widget.validator,
       keyboardType: widget.inputType,
