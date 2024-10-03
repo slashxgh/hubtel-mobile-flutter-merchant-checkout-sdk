@@ -420,7 +420,6 @@ class CheckoutViewModel extends ChangeNotifier {
 
   List<Wallet> getPaymentTypes() {
     final walletTypes = [
-      showHubtelActionString(),
       showZeePayActionsString(),
       showGmoneyActionsString()
     ];
