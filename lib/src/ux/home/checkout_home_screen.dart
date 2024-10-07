@@ -485,7 +485,7 @@ class _CheckoutHomeScreenState2 extends State<CheckoutHomeScreen> {
                                             visible: paymentOptionsAvailable
                                                 .showOtherPaymentsField,
                                             child: OtherPaymentExpansionTile(
-                                              initSelectedProvider:((viewModel.getPaymentTypes()?.length ?? 0) > 0) ? viewModel
+                                              initSelectedProvider:((viewModel.getPaymentTypes().length ?? 0) > 0) ? viewModel
                                                       .getPaymentTypes()[0]
                                                       .accountName ??
                                                   "" : "",

@@ -229,7 +229,7 @@ class AddWalletScreenState extends ValueNotifier<AddWalletUiModel> {
 
   final List<(String, String)> providers = [
     (CheckoutStrings.mtn.toUpperCase(), CheckoutDrawables.mtnMomo),
-    (CheckoutStrings.vodafone.capitalize(), CheckoutDrawables.vodafoneCash),
+    (CheckoutStrings.telecel.capitalize(), CheckoutDrawables.telecelMomoImage),
     (CheckoutStrings.airtelDashTigo, CheckoutDrawables.airtelTigo),
   ];
 
@@ -240,14 +240,28 @@ class AddWalletScreenState extends ValueNotifier<AddWalletUiModel> {
 
   onProviderSelected(int index) {
     assert(index < providers.length);
-    value.provider = providers[index].$1;
+    value.provider = getChannel(channel: providers[index].$1);
     enableButton();
     notifyListeners();
   }
 
+  String getChannel({required String channel}){
+  switch(channel){
+    case (CheckoutStrings.telecel):
+      return "vodafone";
+    case CheckoutStrings.mtn:
+      return "mtn";
+    case CheckoutStrings.airtelTigo:
+      return 'airteltigo';
+  default:
+    return 'mtn';
+
+  }
+  }
+
   enableButton() {
     value.isButtonEnabled =
-        value.provider.isNotEmpty && value.mobileNumber.length >= 10;
+    value.provider.isNotEmpty && value.mobileNumber.length >= 10;
     notifyListeners();
   }
 

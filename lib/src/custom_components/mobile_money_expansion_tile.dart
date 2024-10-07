@@ -97,7 +97,7 @@ class _MobileMoneyExpansionTileState extends State<MobileMoneyExpansionTile> {
                         ?.contains("vodafone-gh") ??
                     false,
                 child: AppImageWidget.local(
-                  image: const AssetImage(CheckoutDrawables.vodafoneCashLogo),
+                  image:  const AssetImage(CheckoutDrawables.telecelImage),
                   width: Dimens.iconSmall,
                   height: Dimens.iconSmall,
                   boxFit: BoxFit.contain,

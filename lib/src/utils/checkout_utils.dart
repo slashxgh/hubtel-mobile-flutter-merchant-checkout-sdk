@@ -41,7 +41,7 @@ class CheckoutUtils {
           directDebitValue: "tigo-gh-direct-debit");
     }
 
-    if (providerString.toLowerCase().contains("voda")) {
+    if (providerString.toLowerCase().contains("voda") || providerString.toLowerCase().contains("telecel")) {
       return MomoProvider(
           name: "Vodafone",
           logoUrl: "",
@@ -51,7 +51,13 @@ class CheckoutUtils {
           directDebitValue: "vodafone-gh-direct-debit");
     }
 
-    return MomoProvider();
+    return MomoProvider(
+        name: "MTN",
+        logoUrl: "",
+        alias: "mtn-gh",
+        receiveMoneyPromptValue: "mtn-gh",
+        preapprovalConfirmValue: "",
+        directDebitValue: "mtn-gh-direct-debit");
   }
 
   static String mapProviderNameToShortName({required String providerName}) {

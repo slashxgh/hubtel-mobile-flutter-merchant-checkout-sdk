@@ -41,7 +41,7 @@ class CheckoutStrings {
 
 2 Select Option 2 (G-Money)
 
-3 Select Option 4 (Payment Services)
+3 Select Option 5 (Payment Services)
 
 4 Select Option 6 (Mandate)
 
@@ -55,7 +55,7 @@ class CheckoutStrings {
   static const paymentWithMomoInfoTail =
       " go to My Account and select Approvals";
 
-  static const vodafoneCash = "Vodafone Cash";
+  static const vodafoneCash = "Telecel Cash";
 
   static const airtelTigoMoney = "AirtelTigo Cash";
 
@@ -344,7 +344,8 @@ class CheckoutStrings {
 
   static const bankPay = "bankpay";
 
-  static const bank_pay = "Bank Pay";
+  static const bank_pay = "Cash / Cheque";
+
 
   static String getChannelNameForBankPayment(String cardNumber) {
     return cardNumber.startsWith(CheckoutStrings.four)
@@ -378,5 +379,6 @@ class CheckoutStrings {
   static const seeCode =  " to see code. ";
   static const option_5 =  " Option 5 ";
   static const errorText = "Error";
+  static const String telecel = "Telecel";
 
 }

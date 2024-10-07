@@ -28,7 +28,7 @@ class Wallet implements Serializable {
       return 'MTN Mobile Money';
     }
     if (provider?.toLowerCase().contains('vodafone') == true) {
-      return 'Vodafone Cash';
+      return 'Telecel Cash';
     }
     if (provider?.toLowerCase().contains('tigo') == true || provider?.toLowerCase().contains('airtel') == true) {
       return 'AT Money';

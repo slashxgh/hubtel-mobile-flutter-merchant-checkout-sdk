@@ -62,7 +62,7 @@ class OtherPaymentExpansionTile extends StatefulWidget {
 }
 
 class _OtherPaymentExpansionTileState extends State<OtherPaymentExpansionTile> {
-  late bool showHubtelWalletActions = widget.initSelectedProvider.toLowerCase() == "hubtel";
+  late bool showHubtelWalletActions = false;
 
   late bool showGmoneyWalletActions = widget.initSelectedProvider.toLowerCase() == "gmoney";
 
@@ -95,9 +95,7 @@ class _OtherPaymentExpansionTileState extends State<OtherPaymentExpansionTile> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Visibility(
-            visible: CheckoutViewModel.channelFetch?.channels
-                    ?.contains("hubtel-gh") ??
-                false,
+            visible: false,
             child: AppImageWidget.local(
               image: const AssetImage(CheckoutDrawables.hubtel_logo),
               width: Dimens.iconMedium,
@@ -152,13 +150,13 @@ class _OtherPaymentExpansionTileState extends State<OtherPaymentExpansionTile> {
             },
             hintText: "Provider"),
         Visibility(
-            visible: showHubtelWalletActions,
+            visible: false,
             child: Container(
               alignment: Alignment.topLeft,
               child: const Padding(
                 padding: EdgeInsets.only(top: 8),
                 child: Text(
-                  "Your balance on Hubtel will be debited immediately you confirm. \n\nNo authorzation prompt will be sent to you",
+                  "Your balance on Hubtel will be debited immediately you confirm.",
                   textAlign: TextAlign.start,
                 ),
               ),
