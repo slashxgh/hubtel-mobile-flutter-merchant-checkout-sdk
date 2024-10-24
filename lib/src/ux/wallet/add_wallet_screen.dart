@@ -251,7 +251,7 @@ class AddWalletScreenState extends ValueNotifier<AddWalletUiModel> {
       return "vodafone";
     case CheckoutStrings.mtn:
       return "mtn";
-    case CheckoutStrings.airtelTigo:
+    case CheckoutStrings.airtelTigo || CheckoutStrings.airtelDashTigo:
       return 'airteltigo';
   default:
     return 'mtn';
