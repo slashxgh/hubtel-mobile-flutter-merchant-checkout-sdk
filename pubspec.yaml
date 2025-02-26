@@ -17,18 +17,17 @@ dependencies:
   animated_toggle_switch: ^0.7.0
   flutter_svg: ^2.0.7
   webview_flutter: ^4.2.4
-  pdf: ^3.4.0
-  path_provider: ^2.0.4
-  printing: ^5.11.0
-  open_filex: ^4.3.2
+  pdf: ^3.11.3
+  path_provider: ^2.1.5
+  printing: ^5.14.2
+  open_filex: ^4.6.0
 #  flutter_html_to_pdf: ^0.7.0
-  flutter_html_to_pdf_updated: ^1.0.0
   shared_preferences: ^2.2.1
   url_launcher: ^6.0.12
 #  htmltopdfwidgets: ^0.0.9+1
-#  flutter_html_to_pdf:
-#    git:
-#      url: https://github.com/mohammadhprp/flutter_html_to_pdf2
+  flutter_html_to_pdf:
+    git:
+      url: https://github.com/mohammadhprp/flutter_html_to_pdf2
 dev_dependencies:
   flutter_test:
     sdk: flutter
