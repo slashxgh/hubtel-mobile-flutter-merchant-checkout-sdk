@@ -22,7 +22,7 @@ dependencies:
   printing: ^5.11.0
   open_filex: ^4.3.2
 #  flutter_html_to_pdf: ^0.7.0
-  flutter_html_to_pdf2: ^0.0.1
+  flutter_html_to_pdf_updated: ^1.0.0
   shared_preferences: ^2.2.1
   url_launcher: ^6.0.12
 #  htmltopdfwidgets: ^0.0.9+1
